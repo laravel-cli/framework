@@ -1,5 +1,5 @@
 {
-    "name": "laravel-cli/laravel-cli",
+    "name": "laravel-cli/framework",
     "description": "The PHP CLI framework based on the Laravel Console",
     "type": "library",
     "license": "MIT",
