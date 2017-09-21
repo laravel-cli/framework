@@ -1,0 +1,17 @@
+{
+    "name": "laravel-cli/laravel-cli",
+    "description": "The PHP CLI framework based on the Laravel Console",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jiayx",
+            "email": "i@jiayx.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/console": "5.4.*",
+        "vlucas/phpdotenv": "^2.4"
+    }
+}
