@@ -6,8 +6,8 @@ use LaravelCli\Application;
 class Factory
 {
     private $bootstrappers = [
-        Bindings::class,
         Config::class,
+        Bindings::class,
         Commands::class,
     ];
 

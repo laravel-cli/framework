@@ -13,4 +13,9 @@ class Commands extends Bootstrapper
             $this->application->add(new $command);
         }
     }
+
+    private function autoloadCommands()
+    {
+
+    }
 }

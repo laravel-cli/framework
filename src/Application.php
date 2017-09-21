@@ -38,11 +38,22 @@ class Application extends BaseApplication implements ApplicationContract
 
     protected function commandsAutoload()
     {
-        if (!env('AUTOLOAD_COMMANDS')) {
+        if (!env('AUTOLOAD_COMMANDS', false)) {
             return;
         }
 
-        // TODO 命令自动加载
+        $handle = opendir($this->commandsPath());
+        while ($file = readdir($handle)) {
+            if (in_array($file, ['.', '..'])) {
+                continue;
+            }
+
+            if (preg_match('~\w+Command~', $file)) {
+                $commandName = 'App\Commands\\'.basename($file, '.php');
+                $this->add(new $commandName);
+            }
+        }
+        closedir($handle);
     }
 
     public function getContainer()
@@ -52,6 +63,6 @@ class Application extends BaseApplication implements ApplicationContract
 
     public function commandsPath()
     {
-        return BASE_PATH.DIRECTORY_SEPARATOR.'app/Commands';
+        return BASE_PATH.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Commands';
     }
 }
